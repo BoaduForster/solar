@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" class="a-fullscreen">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boadu Forster Abboah solar system 092</title>
+    <script src="script/aframe.min.js"></script>
+    <meta aframe-injected name="mobile-web-app-capable" content="yes">
+</head>
+<body>
+
+    <a-scene>
+        <!--Assets management system-->
+        <a-assets>
+            <img src="texture/2k_stars_milky_way.jpg" id="Milkyway">
+            <img src="texture/2k_stars.jpg" id="stars">
+            <img src="texture/2k_moon.jpg" id="Moon">
+            <img src="texture/2k_sun.jpg" id="Sun">
+            <img src="texture/2k_mercury.jpg" id="Mercury">
+            <img src="texture/2k_venus_surface.jpg" id="Venus_Surface">
+            <img src="texture/2k_venus_atmosphere.jpg" id="Venus_Atmosphere">
+            <img src="texture/2k_earth_daymap.jpg" id="Earth">
+            <img src="texture/2k_mars.jpg" id="Mars">
+            <img src="texture/2k_jupiter.jpg" id="Jupiter">
+            <img src="texture/2k_saturn.jpg" id="Saturn">
+            <img src="texture/2k_saturn_ring_alpha.png" id="Saturn_ring">
+            <img src="texture/2k_uranus.jpg" id="Uranus">
+            <img src="texture/2k_neptune.jpg" id="Neptune">
+        </a-assets>
+        
+        <!--Milkyway-->
+        <a-sky material="src:#Milkyway" 
+            normal-map="#stars" 
+            rotation="0 -90 0"
+            material geometry>
+        </a-sky>
+
+        <a-camera position="0 10 70"></a-camera>
+        <!--Sun-->
+        <a-sphere material="src: #Sun" 
+        radius="8" material geometry></a-sphere>
+
+        <!--Mecury-->
+        <a-sphere id="mercury" material="src: #Mercury"
+        radius="1"
+        position="4 0 10" material geometry></a-sphere>
+        <!--Mercury's Path-->
+        <a-torus color="#FFFFFF"
+        rotation="90 0 0"
+        radius="11.2"
+        radius-tubular="0.01"
+        arc="360"
+        segments-tubular="512" material geometry></a-torus>
+
+        <!-- Venus-->
+        <a-sphere id="venus" material="src:#Venus_Surface"
+        radius="1.3"
+        position="9.3 0 11.7" material geometry></a-sphere>
+        <!--Venus's Path-->
+        <a-torus color="#FFFFFF"
+        rotation="90 0 0"
+        radius="15"
+        radius-tubular="0.01"
+        arc="360"
+        segments-tubular="512" material geometry></a-torus>
+
+        <!--Earth-->
+        <a-sphere id="earth" material="src: #Earth"
+        radius="1.5"
+        position="7.3 0 19" material geometry>
+        <!--Moon-->
+        <a-sphere id="moon" material="src:#Moon"
+        radius="0.5"
+        position="4.25 0 -3" material geometry></a-sphere>
+    </a-sphere>
+        <!--Earth's Path-->
+        <a-torus color="#FFFFFF"
+        rotation="90 0 0"
+        radius="21"
+        radius-tubular="0.01"
+        arc="360"
+        segments-tubular="512" material geometry></a-torus>
+
+        <!--Mars-->
+        <a-sphere id="mars" material="src:#Mars"
+        radius="1.2"
+        position="4 0 26.5" material geometry></a-sphere>
+        <!--Mar's Path-->
+        <a-torus color="#FFFFFF"
+        rotation="90 0 0"
+        radius="26.8"
+        radius-tubular="0.01"
+        arc="360"
+        segments-tubular="512" material geomtry></a-torus>
+
+         <!--Jupiter-->
+         <a-sphere id="jupiter" material="src:#Jupiter"
+         radius="2.5"
+         position="9.3 0 31" material geometry></a-sphere>
+         <!--Jupiter's Path-->
+         <a-torus color="#FFFFFF"
+         rotation="90 0 0"
+         radius="32.8"
+         radius-tubular="0.01"
+         arc="360"
+         segments-tubular="512" material geometry></a-torus>
+
+          <!--Saturn-->
+        <a-sphere id="saturn" material="src: #Saturn"
+        radius="2"
+        position="15 0 38" material geometry>
+        <!--Saturn's Rings-->
+        <a-ring material="src:#Saturn_ring;
+        offset: 0 0; repeat: 5 5 "
+        radius-inner="3.5"
+        radius-outer="2.5"
+        rotation="-90 0 0"
+        side="double" material geometry></a-ring>
+        </a-sphere>
+        <!-- Saturn's Path-->
+       <a-torus color="#FFFFFF"
+       rotation="90 0 0"
+       radius="41"
+       radius-tubular="0.01"
+       arc="360"
+       segments-tubular="512" material geometry></a-torus>
+
+       <!--Uranus-->
+       <a-sphere id="uranus" material="src:#Uranus"
+       radius="1.5"
+       position="6 0 46" material geometry></a-sphere>
+       <!--Uranus's Path-->
+       <a-torus color="#FFFFFF"
+       rotation="90 0 0"
+       radius="47"
+       radius-tubular="0.01"
+       arc="360"
+       segments-tubular="512" material geometry></a-torus>
+
+       <!--Neptune-->
+       <a-sphere id="neptune" material="src:#Neptune"
+       radius="1.5"
+       position="14 0 50" material geometry></a-sphere>
+       <!--Neptune's Path-->
+       <a-torus color="#FFFFFF"
+       rotation="90 0 0"
+       radius="52"
+       radius-tubular="0.01"
+       arc="360"
+       segments-tubular="512" material geometry></a-torus>
+
+    </a-scene>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const planets = [
+                { id: 'mercury', radius: 11.2, speed: 0.06 },
+                { id: 'venus', radius: 15, speed: 0.04 },
+                { id: 'earth', radius: 21, speed: 0.02 },
+                { id: 'mars', radius: 26.8, speed: 0.009 },
+                { id: 'jupiter', radius: 32.8, speed: 0.006 },
+                { id: 'saturn', radius: 41, speed: 0.004 },
+                { id: 'uranus', radius: 47, speed: 0.003 },
+                { id: 'neptune', radius: 52, speed: 0.0016 }
+            ];
+
+            const moon = { id: 'moon', radius: 2, speed: 0.09 }; 
+            let time = 0;
+
+            function updatePositions() {
+                time += 0.1;  
+
+                planets.forEach(planet => {
+                    const element = document.getElementById(planet.id);
+                    if (!element) return;
+
+                    const angle = time * planet.speed;
+                    const x = Math.cos(angle) * planet.radius;
+                    const z = Math.sin(angle) * planet.radius;
+
+                    element.setAttribute('position', { x: x, y: 0, z: z });
+                });
+
+                // Moon orbiting Earth
+                const earthElement = document.getElementById('earth');
+                if (earthElement) {
+                    const earthPos = earthElement.getAttribute('position');
+                    const moonElement = document.getElementById(moon.id);
+                    const moonAngle = time * moon.speed;
+
+                    const moonX =  Math.cos(moonAngle) * moon.radius;
+                    const moonZ =  Math.sin(moonAngle) * moon.radius;
+
+                    moonElement.setAttribute('position', { x: moonX, y: 0, z: moonZ });
+                }
+
+                requestAnimationFrame(updatePositions);
+            }
+
+            updatePositions();  
+        });
+    </script>
+    
+</body>
+</html>
